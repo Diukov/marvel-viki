@@ -12,23 +12,26 @@
             font-size: 22px;
             line-height: 29px;
             text-transform: uppercase;
+            text-align: center;
         }
         .skeleton {
             margin-top: 30px;
         }
     }
     &__basics {
-        display: grid;
-        grid-template-columns: 150px auto;
-        column-gap: 25px;
+        // display: grid;
+        // grid-template-columns: 150px auto;
+        // column-gap: 25px;
         img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
             width: 150px;
             height: 150px;
             object-fit: cover;
         }
     }
     &__btns {
-        margin-top: 35px;
         a:nth-child(2) {
             margin-top: 10px;
         }

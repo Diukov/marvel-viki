@@ -45,12 +45,16 @@
             transition: none;
         }
     }
-    &__main, &__secondary {
+    &__main {
+        margin-right: 30px;
         &:hover {
             color: #fff;
         }
     }
     &__secondary {
+        &:hover{
+            color: #fff;
+        }
         .inner {
             background-color: $grey;
             &::before {
@@ -87,5 +91,9 @@
     }
     &:hover {
         transform: translateY(-5px);
+    }
+    &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
     }
 }

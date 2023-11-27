@@ -89,18 +89,22 @@ const View = ({ char }) => {
     <>
       <div className='char__basics'>
         <img src={thumbnail} alt={name} style={imgStyle} />
-        <div className='char__info'>
-          <p className='char__info-name'>{name}</p>
-          <div className='char__btns'>
-            <a href={homepage} className='button button__main'>
-              <div className='inner'>Homepage</div>
-            </a>
-            <a href={wiki} className='button button__secondary'>
-              <div className='inner'>Wiki</div>
-            </a>
-          </div>
-          <p className='char__descr'>{description}</p>
-          <div className='char__comics'>Comics:</div>
+        <p className='char__info-name'>{name}</p>
+        <div className='char__btns'>
+          <a
+            href={homepage}
+            // style={{ marginRight: '30px' }}
+            className='button button__main'
+          >
+            <div className='inner'>Homepage</div>
+          </a>
+          <a href={wiki} className='button button__secondary'>
+            <div className='inner'>Wiki</div>
+          </a>
+        </div>
+        <p className='char__descr'>{description}</p>
+        <div className='char__comics'>
+          Comics:
           <ul className='char__comics-list'>
             {comics.length === 0 ? (
               <li className='char__comics-item'>
