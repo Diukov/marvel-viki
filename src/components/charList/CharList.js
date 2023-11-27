@@ -40,11 +40,10 @@ class CharList extends Component {
       const imgStyle = {
         objectFit: 'cover',
       };
+      const thumbnailPath =
+        'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg';
 
-      if (
-        thumbnail ===
-        'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg'
-      ) {
+      if (thumbnail === thumbnailPath) {
         imgStyle.objectFit = 'unset';
       }
 

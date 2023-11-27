@@ -53,20 +53,6 @@ class CharInfo extends Component {
     this.setState({ error: true, loading: false });
   };
 
-  updateChar = () => {
-    const { id } = this.props;
-
-    if (!id) {
-      return;
-    }
-
-    this.onCharLoading();
-
-    this.MarvelService.getCharacter(id)
-      .then(this.onCharLoaded)
-      .catch(this.onError);
-  };
-
   render() {
     const { char, loading, error } = this.state;
     const skeleton = loading || !char ? <Skeleton /> : null;
@@ -92,11 +78,10 @@ const View = ({ char }) => {
   const imgStyle = {
     objectFit: 'cover',
   };
+  const thumbnailPath =
+    'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg';
 
-  if (
-    thumbnail ===
-    'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg'
-  ) {
+  if (thumbnail === thumbnailPath) {
     imgStyle.objectFit = 'contain';
   }
 
