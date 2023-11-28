@@ -60,8 +60,22 @@ class CharList extends Component {
     });
   };
 
+  itemRefs = [];
+
+  setRef = (ref) => {
+    this.itemRefs.push(ref);
+  };
+
+  focus = (id) => {
+    this.itemRefs.forEach((item) =>
+      item.classList.remove('char__item_selected'),
+    );
+    this.itemRefs[id].classList.add('char__item_selected');
+    this.itemRefs[id].focus();
+  };
+
   renderItems(arr) {
-    const items = arr.map((item) => {
+    const items = arr.map((item, index) => {
       const { id, name, thumbnail } = item;
       const imgStyle = {
         objectFit: 'cover',
@@ -76,14 +90,26 @@ class CharList extends Component {
       return (
         <li
           className='char__item'
+          tabIndex={0}
+          ref={this.setRef}
           key={id}
-          onClick={() => this.props.onCharSelected(id)}
+          onClick={() => {
+            this.props.onCharSelected(id);
+            this.focus(index);
+          }}
+          onKeyPress={(e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+              this.props.onCharSelected(id);
+              this.focus(index);
+            }
+          }}
         >
           <img src={thumbnail} alt={name} style={imgStyle} />
           <div className='char__name'>{name}</div>
         </li>
       );
     });
+
     return <ul className='char__grid'>{items}</ul>;
   }
 

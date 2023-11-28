@@ -92,11 +92,7 @@ const View = ({ char }) => {
         <img src={thumbnail} alt={name} style={imgStyle} />
         <p className='char__info-name'>{name}</p>
         <div className='char__btns'>
-          <a
-            href={homepage}
-            // style={{ marginRight: '30px' }}
-            className='button button__main'
-          >
+          <a href={homepage} className='button button__main'>
             <div className='inner'>Homepage</div>
           </a>
           <a href={wiki} className='button button__secondary'>
